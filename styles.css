@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2a2a2a;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+.name {
+    color: rgb(255, 255, 255);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border-radius: 50%;
+}
+
+.email {
+    font-size: 1.2rem;
+    color: rgb(255, 255, 255);
+}
+
+.language-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.language-switcher select {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+    min-width: 120px;
+}
+
+.language-switcher select:hover {
+    background-color: white;
+    color: #000000;
+}
+
+.language-switcher select option {
+    background-color: #000000;
+    color: white;
+}
+
+.email a {
+    color: skyblue;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom-color 0.3s ease;
+}
+
+.email a:hover {
+    border-bottom-color: skyblue;
+}
+
+/* Add support for RTL languages */
+[data-lang="ar"] {
+    direction: rtl;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.description {
+    color: rgb(200, 200, 200);
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.image-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Space between description and images */
+}
+
+.image-links a {
+    margin: 0 10px; /* Space between images */
+}
+
+.image-links img {
+    width: 50px; /* Adjust size to make icons smaller */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional: rounded corners */
+}
+
+.role {
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 10px;
+} 

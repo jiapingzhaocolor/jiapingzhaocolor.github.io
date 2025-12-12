@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>japing.cn</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="images/mail-1009.svg">
+</head>
+<body>
+    <div class="language-switcher">
+        <select id="langSelect" onchange="changeLanguage()">
+            <option value="zh">中文</option>
+            <option value="en">English</option>
+            <option value="hi">हिंदी</option>
+            <option value="es">Español</option>
+            <option value="ar">العربية</option>
+            <option value="ru">Русский</option>
+            <option value="fr">Français</option>
+            <option value="jp">日本語</option>
+            <option value="kr">한국어</option>
+        </select>
+    </div>
+    <div class="container">
+        <p class="name">
+            <strong data-en="Jiaping Zhao" 
+                    data-zh="赵家平"
+                    data-hi="Jiaping Zhao"
+                    data-es="Jiaping Zhao"
+                    data-ar="Jiaping Zhao"
+                    data-ru="Jiaping Zhao"
+                    data-fr="Jiaping Zhao"
+                    data-jp="Jiaping Zhao"
+                    data-kr="Jiaping Zhao">Jiaping Zhao</strong>
+        </p>
+        <p class="role" data-en="Colorist | DCTL Developer" 
+                   data-zh="调色师 | DCTL 开发者"
+                   data-hi="कलरिस्ट | DCTL डेवलपर"
+                   data-es="Colorista | Desarrollador de DCTL"
+                   data-ar="اختصاصي تلوين | مطور DCTL"
+                   data-ru="Колорист | Разработчик DCTL"
+                   data-fr="Coloriste | Développeur DCTL"
+                   data-jp="カラーリスト | DCTL 開発者"
+                   data-kr="칼라리스트 | DCTL 개발자">Colorist | DCTLs Developer</p>
+        <img src="images/profile.jpg" alt="Profile Picture">
+        
+        <div class="image-links">
+            <a href="https://github.com/JiapingZhao" target="_blank">
+                <img src="images/github.png" alt="GitHub Profile" />
+            </a>
+            <a href="https://www.linkedin.com/in/jiaping-z-1096a0335/" target="_blank">
+                <img src="images/linkedin.png" alt="LinkedIn Profile" />
+            </a>
+            <a href="mailto:jiapinz@outlook.com" target="_blank">
+                <img src="images/email.png" alt="Email Contact" />
+            </a>
+        </div>
+    </div>
+    <script>
+        let currentLang = 'en';
+        
+        function changeLanguage() {
+            const select = document.getElementById('langSelect');
+            currentLang = select.value;
+            const elements = document.querySelectorAll('[data-en]');
+            
+            elements.forEach(element => {
+                element.textContent = element.getAttribute(`data-${currentLang}`);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const select = document.getElementById('langSelect');
+            select.value = 'en';
+            changeLanguage();
+        });
+    </script>
+</body>
+</html>
