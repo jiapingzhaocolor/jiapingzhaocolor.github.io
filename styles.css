@@ -84,20 +84,26 @@ img {
     margin-top: 10px;
 }
 
-.image-links {
+.text-links {
     display: flex;
-    justify-content: center;
-    margin-top: 20px; /* Space between description and images */
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
 }
 
-.image-links a {
-    margin: 0 10px; /* Space between images */
+.text-links a {
+    color: skyblue;
+    text-decoration: none;
+    margin: 5px 0;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
 }
 
-.image-links img {
-    width: 50px; /* Adjust size to make icons smaller */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 8px; /* Optional: rounded corners */
+.email-text {
+    color: white;
+    font-weight: bold;
+    margin: 5px 0;
+    font-size: 1.2rem;
 }
 
 .role {
