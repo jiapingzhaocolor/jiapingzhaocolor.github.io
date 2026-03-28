@@ -54,4 +54,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', revealOnScroll);
     revealOnScroll(); // Trigger initial check
+
+    // Album functionality
+    const albums = document.querySelectorAll('.album-item');
+    
+    albums.forEach(album => {
+        const slides = album.querySelectorAll('.work-slides img');
+        const nextBtn = album.querySelector('.next-btn');
+        const prevBtn = album.querySelector('.prev-btn');
+        let currentIdx = 0;
+        let autoFlipInterval;
+
+        const showSlide = (index) => {
+            slides.forEach(img => img.classList.remove('active'));
+            slides[index].classList.add('active');
+            currentIdx = index;
+        };
+
+        const nextSlide = () => {
+            let nextIdx = (currentIdx + 1) % slides.length;
+            showSlide(nextIdx);
+        };
+
+        const prevSlide = () => {
+            let prevIdx = (currentIdx - 1 + slides.length) % slides.length;
+            showSlide(prevIdx);
+        };
+
+        const startAutoFlip = () => {
+            autoFlipInterval = setInterval(nextSlide, 4000);
+        };
+
+        const stopAutoFlip = () => {
+            clearInterval(autoFlipInterval);
+        };
+
+        // Event listeners for manual navigation
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            stopAutoFlip();
+            nextSlide();
+            startAutoFlip();
+        });
+
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            stopAutoFlip();
+            prevSlide();
+            startAutoFlip();
+        });
+
+        // Initialize auto-flipping
+        startAutoFlip();
+    });
 });
