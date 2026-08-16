@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacts</title>
+  <style>
+
+    @font-face{font-family:'BebasNeue';src:url('fonts/BebasNeue-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+    @font-face{font-family:'Mont';src: url('fonts/Mont-ExtraLightDEMO.otf') format('opentype');font-weight:300;font-style:normal;font-display:swap}
+    @font-face{font-family:'Mont';src: url('fonts/Mont-HeavyDEMO.otf') format('opentype');font-weight:800;font-style:normal;font-display:swap}
+    @font-face{font-family:'LEMONMILK';src: url('fonts/LEMONMILK-Light.otf') format('opentype');font-weight:300;font-style:normal;font-display:swap}
+    @font-face{font-family:'LEMONMILK';src: url('fonts/LEMONMILK-Medium.otf') format('opentype');font-weight:500;font-style:normal;font-display:swap}
+    :root{--max-width:1040px;--gap:18px;--base-font:16px;--heading-size:32px;--nav-size:18px;--picture-gap:6px;--thumb-height:130px;--accent-color:#f2bf05}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;min-height:100%;font-family:'Mont','BebasNeue','Inter',Arial,Helvetica,sans-serif;background:#000;color:var(--accent-color);font-weight:400;font-size:var(--base-font);line-height:1.35}
+    body{min-height:100vh;display:flex;flex-direction:column}
+    .top-area{width:var(--max-width);margin:42px auto 0 auto;display:flex;justify-content:space-between;align-items:center;gap:var(--gap)}
+
+    .identity {
+      line-height: 1.1;
+    }
+
+    .identity-link {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .name { font-family: 'LEMONMILK','Mont','BebasNeue','Inter', Arial, Helvetica, sans-serif; font-size: var(--heading-size); font-weight:500; margin:0 0 7px 0; letter-spacing:0.3px }
+    .top-area .title { font-family:'LEMONMILK','Mont','BebasNeue','Inter',Arial,Helvetica,sans-serif; font-size: var(--nav-size); font-weight:300; margin:0; letter-spacing:0.2px; text-decoration:none }
+
+    .nav{display:flex;gap:28px;font-size:var(--nav-size);font-weight:700;padding-top:6px;letter-spacing:0.2px}
+
+      .nav-item{position:relative}
+      .nav-item .nav-link{display:inline-block}
+      .nav-item .dropdown{position:absolute;left:0;top:100%;background:#000;border:1px solid #222;display:none;min-width:180px;padding:6px 0;z-index:40}
+      .nav-item .dropdown a{display:block;padding:8px 12px;color:inherit;text-decoration:none;white-space:nowrap}
+      .nav-item:hover .dropdown{display:block}
+
+    .nav a {
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+      padding: 2px 5px;
+      margin: -2px -5px;
+      transition: background-color 0.18s ease;
+    }
+
+    .nav a:hover {
+      background-color: rgba(255,255,255,0.06);
+      text-decoration: none;
+    }
+
+    .gallery{width:var(--max-width);margin:42px auto 0 auto;display:grid;grid-template-columns:repeat(2,1fr);column-gap:var(--picture-gap);row-gap:var(--gap)}
+
+    .picture {
+      aspect-ratio: 17 / 9;
+      background: #000000;
+      overflow: hidden;
+    }
+
+    .picture-title {
+      display: inline-block;
+      margin: 5px 0 0 0;
+      padding: 1px 4px;
+      margin-left: -4px;
+      font-size: 14px;
+      font-family: 'LEMONMILK','Mont','BebasNeue', Arial, Helvetica, sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.2px;
+      transition: background-color 0.18s ease;
+    }
+
+    .project:hover .picture-title { background-color: rgba(255,255,255,0.04); }
+
+    .site-footer {
+      margin-top: auto;
+      padding: 60px 0 28px 0;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 300;
+      font-family: 'LEMONMILK','Mont','BebasNeue', Arial, Helvetica, sans-serif;
+      letter-spacing: 0.2px;
+    }
+
+    @media (max-width: 1140px) {
+      .top-area,
+      .gallery {
+        width: calc(100% - 48px);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .top-area {
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="top-area">
+    <a class="identity-link" href="index.html" aria-label="Go to Work">
+      <div class="identity">
+        <p class="name">Jiaping Zhao</p>
+        <p class="title">Colorist</p>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <div class="nav-item">
+        <a class="nav-link" href="index.html">Work</a>
+        <div class="dropdown" aria-hidden="true">
+          <a href="narrative.html">Narrative</a>
+          <a href="commercial.html">Commercial</a>
+        </div>
+      </div>
+      <a href="reels.html">Reels</a>
+      <a href="about.html">About</a>
+      <a href="contacts.html">Contacts</a>
+    </nav>
+  </div>
+
+  <main style="width:var(--max-width);margin:42px auto 0 auto;display:flex;flex-direction:column;gap:18px;color:var(--accent-color);font-family:'LEMONMILK','Mont','BebasNeue','Inter',Arial,Helvetica,sans-serif;">
+    <div style="display:flex;flex-direction:column;gap:8px;line-height:1.7;">
+      <div style="font-weight:300;letter-spacing:0.2px;">Contact:</div>
+      <div style="font-weight:300;letter-spacing:0.1px;">
+        <div>Email: <a href="mailto:jiapingzhao.color@gmail.com" style="color:inherit;text-decoration:none;">jiapingzhao.color@gmail.com</a></div>
+        <div>Phone: <a href="tel:+447759777762" style="color:inherit;text-decoration:none;">+44 7759777762</a></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    © 2026 Jiaping Zhao. All rights reserved.
+  </footer>
+
+</body>
+</html>

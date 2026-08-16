@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reel Viewer</title>
+  <style>
+    @font-face{font-family:'BebasNeue';src:url('fonts/BebasNeue-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+    @font-face{font-family:'Mont';src: url('fonts/Mont-ExtraLightDEMO.otf') format('opentype');font-weight:300;font-style:normal;font-display:swap}
+    @font-face{font-family:'Mont';src: url('fonts/Mont-HeavyDEMO.otf') format('opentype');font-weight:800;font-style:normal;font-display:swap}
+    @font-face{font-family:'LEMONMILK';src: url('fonts/LEMONMILK-Light.otf') format('opentype');font-weight:300;font-style:normal;font-display:swap}
+    @font-face{font-family:'LEMONMILK';src: url('fonts/LEMONMILK-Medium.otf') format('opentype');font-weight:500;font-style:normal;font-display:swap}
+    :root{--max-width:980px;--gap:18px;--base-font:16px;--viewer-title-size:22px;--thumb-height:130px;--picture-gap:4px;--accent-color:#f2bf05}
+    *{box-sizing:border-box}
+    body{font-family:'Mont','BebasNeue','Inter',Arial,Helvetica,sans-serif;margin:0;background:#000;color:var(--accent-color);font-weight:400;font-size:var(--base-font);line-height:1.35}
+    .wrap{max-width:var(--max-width);margin:42px auto;display:flex;flex-direction:column;align-items:center;gap:var(--gap)}
+    .back{align-self:flex-start;text-decoration:none;color:inherit;font-size:14px}
+    .main-figure{width:100%;display:flex;justify-content:center}
+    .main-figure img{width:100%;max-height:66vh;object-fit:contain;border:1px solid #222}
+    .thumbs{display:grid;grid-template-columns:1fr;gap:var(--picture-gap);width:100%;margin-top:6px}
+    .thumbs img{width:100%;height:calc(var(--thumb-height) - 20px);object-fit:cover;cursor:pointer;border:2px solid transparent;display:block}
+    .thumbs .active{border-color:var(--accent-color)}
+    .title{font-family:'LEMONMILK','Mont','BebasNeue',Arial,Helvetica,sans-serif;font-size:var(--viewer-title-size);margin:0;font-weight:300;color:var(--accent-color)}
+    @media(min-width:900px){
+      .thumbs{grid-template-columns:repeat(3,1fr);gap:8px}
+      .thumbs img{height:var(--thumb-height)}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="index.html">← Back</a>
+    <h1 class="title" id="albumTitle">Reel</h1>
+
+    <div class="main-figure">
+      <img id="mainImage" src="" alt="Main reel">
+    </div>
+
+    <div class="thumbs" id="thumbs"></div>
+  </div>
+
+  <script>
+    const albums = {
+      cinnabar: {
+        title: 'Cinnabar for a Jealous God',
+        folder: 'Cinnabar for a Jealous God',
+        images: [
+          'Still 2026-08-15 195818_1.150.1image.webp',
+          'Still 2026-08-15 195818_1.16.1image.webp',
+          'Still 2026-08-15 195818_1.161.1image.webp',
+          'Still 2026-08-15 195818_1.163.1image.webp',
+          'Still 2026-08-15 195818_1.170.1image.webp',
+          'Still 2026-08-15 195818_1.173.1image.webp',
+          'Still 2026-08-15 195818_1.176.1image.webp',
+          'Still 2026-08-15 195818_1.177.1image.webp',
+          'Still 2026-08-15 195818_1.180.1image.webp',
+          'Still 2026-08-15 195818_1.182.1image.webp',
+          'Still 2026-08-15 195818_1.189.1image.webp',
+          'Still 2026-08-15 195818_1.202.1image.webp',
+          'Still 2026-08-15 195818_1.206.1image.webp',
+          'Still 2026-08-15 195818_1.3.1image.webp',
+          'Still 2026-08-15 195818_1.39.1image.webp',
+          'Still 2026-08-15 195818_1.44.1image.webp',
+          'Still 2026-08-15 195818_1.49.1image.webp',
+          'Still 2026-08-15 195818_1.53.1image.webp',
+          'Still 2026-08-15 195818_1.61.1image.webp',
+          'Still 2026-08-15 195818_1.62.1image.webp',
+          'Still 2026-08-15 195818_1.66.1image.webp',
+          'Still 2026-08-15 195818_1.74.1image.webp',
+          'Still 2026-08-15 195818_1.75.1image.webp',
+          'Still 2026-08-15 195818_1.89.1image.webp',
+          'Still 2026-08-15 195818_1.98.1image.webp',
+          'Still 2026-08-15 195818_1.99.1image.webp'
+        ]
+      },
+      crazy: {
+        title: 'Crazy Fucking Dance Lady',
+        folder: 'Crazy Fucking Dance Lady',
+        images: [
+          'Still 2026-08-15 194253_1.105.1image.webp',
+          'Still 2026-08-15 194253_1.110.1image.webp',
+          'Still 2026-08-15 194253_1.114.1image.webp',
+          'Still 2026-08-15 194253_1.136.1image.webp',
+          'Still 2026-08-15 194253_1.137.1image.webp',
+          'Still 2026-08-15 194253_1.151.1image.webp',
+          'Still 2026-08-15 194253_1.153.1image.webp',
+          'Still 2026-08-15 194253_1.170.1image.webp',
+          'Still 2026-08-15 194253_1.183.1image.webp',
+          'Still 2026-08-15 194253_1.189.1image.webp',
+          'Still 2026-08-15 194253_1.191.1image.webp',
+          'Still 2026-08-15 194253_1.198.1image.webp',
+          'Still 2026-08-15 194253_1.209.1image.webp',
+          'Still 2026-08-15 194253_1.222.1image.webp',
+          'Still 2026-08-15 194253_1.223.1image.webp',
+          'Still 2026-08-15 194253_1.235.1image.webp',
+          'Still 2026-08-15 194253_1.237.1image.webp',
+          'Still 2026-08-15 194253_1.249.1image.webp',
+          'Still 2026-08-15 194253_1.251.1image.webp',
+          'Still 2026-08-15 194253_1.271.1image.webp',
+          'Still 2026-08-15 194253_1.52.1image.webp',
+          'Still 2026-08-15 194253_1.55.1image.webp',
+          'Still 2026-08-15 194253_1.56.1image.webp',
+          'Still 2026-08-15 194253_1.58.1image.webp',
+          'Still 2026-08-15 194253_1.62.1image.webp',
+          'Still 2026-08-15 194253_1.65.1image.webp',
+          'Still 2026-08-15 194253_1.7.1image.webp',
+          'Still 2026-08-15 194253_1.73.1image.webp'
+        ]
+      },
+      reservoir: {
+        title: 'Reservoir',
+        folder: 'Reservoir',
+        images: [
+          'Still 2026-08-15 200933_1.11.1image.webp',
+          'Still 2026-08-15 200933_1.12.1image.webp',
+          'Still 2026-08-15 200933_1.13.1image.webp',
+          'Still 2026-08-15 200933_1.16.1image.webp',
+          'Still 2026-08-15 200933_1.21.1image.webp',
+          'Still 2026-08-15 200933_1.24.1image.webp',
+          'Still 2026-08-15 200933_1.29.1image.webp',
+          'Still 2026-08-15 200933_1.3.1image.webp',
+          'Still 2026-08-15 200933_1.4.1image.webp',
+          'Still 2026-08-15 200933_1.5.1image.webp',
+          'Still 2026-08-15 200933_1.8.1image.webp',
+          'Still 2026-08-15 200933_1.9.1image.webp',
+          'Still 2026-08-15 201223_1.14.1image.webp',
+          'Still 2026-08-15 201255_1.16.2image.webp'
+        ]
+      },
+      macbeth: {
+        title: 'Macbeth',
+        folder: 'Macbeth',
+        images: [
+          'Still 2026-08-16 011549_1.12.1image.webp',
+          'Still 2026-08-16 011549_1.12.2image.webp',
+          'Still 2026-08-16 011549_1.12.3image.webp',
+          'Still 2026-08-16 011549_1.12.4image.webp',
+          'Still 2026-08-16 011549_1.12.5image.webp',
+          'Still 2026-08-16 011549_1.12.6image.webp',
+          'Still 2026-08-16 011549_1.12.7image.webp',
+          'Still 2026-08-16 011549_1.12.8image.webp'
+        ]
+      }
+    };
+
+    function q(name){
+      return new URLSearchParams(location.search).get(name);
+    }
+
+    function encodeSegment(s){
+      return encodeURIComponent(s).replace(/%20/g, '%20');
+    }
+
+    const albumKey = q('album') || 'cinnabar';
+    const album = albums[albumKey];
+    const titleEl = document.getElementById('albumTitle');
+    const mainImage = document.getElementById('mainImage');
+    const thumbs = document.getElementById('thumbs');
+
+    if(!album){
+      titleEl.textContent = 'Album not found';
+    } else {
+      titleEl.textContent = album.title;
+      // set main image to first
+      const first = album.images[0];
+      mainImage.src = ['photos', encodeSegment(album.folder), '02_large', encodeSegment(first)].join('/');
+
+      album.images.forEach((fn, i) => {
+        const t = document.createElement('img');
+        t.src = ['photos', encodeSegment(album.folder), '01_thumbnails', encodeSegment(fn)].join('/');
+        t.alt = fn;
+        if(i===0) t.classList.add('active');
+        t.addEventListener('click', ()=>{
+          mainImage.src = ['photos', encodeSegment(album.folder), '02_large', encodeSegment(fn)].join('/');
+          document.querySelectorAll('#thumbs img').forEach(x=>x.classList.remove('active'));
+          t.classList.add('active');
+        });
+        thumbs.appendChild(t);
+      });
+    }
+  </script>
+</body>
+</html>
