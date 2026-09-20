@@ -1,0 +1,23 @@
+/* Shared header: index.html is the visual reference. All pages load this last.
+   Keep header markup identical across pages; change placement/type here only. */
+@font-face{font-family:'BebasNeue';src: url('fonts/BebasNeue-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Mont';src: url('fonts/Mont-ExtraLightDEMO.otf') format('opentype');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Mont';src: url('fonts/Mont-HeavyDEMO.otf') format('opentype');font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:'LEMONMILK';src: url('fonts/LEMONMILK-Light.otf') format('opentype');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'LEMONMILK';src: url('fonts/LEMONMILK-Medium.otf') format('opentype');font-weight:500;font-style:normal;font-display:swap}
+/* Reserve scrollbar space so short and long pages keep the same alignment. */
+html{scrollbar-gutter:stable}
+.top-area.site-header{box-sizing:border-box;width:min(1320px,calc(100% - 48px));margin:42px auto 0;padding:0;display:flex;flex-direction:row;justify-content:space-between;align-items:center;gap:18px;flex-shrink:0;color:#f2bf05;font-family:'Mont','BebasNeue','Inter',Arial,Helvetica,sans-serif;font-size:16px;font-weight:400;line-height:1.35}
+.site-header .identity{line-height:1.1}
+.site-header .identity-link{color:inherit;text-decoration:none}
+.site-header .name{font-family:'LEMONMILK','Mont','BebasNeue','Inter',Arial,Helvetica,sans-serif;font-size:32px;font-weight:500;margin:0 0 7px;letter-spacing:0.3px}
+.site-header .title{font-family:'LEMONMILK','Mont','BebasNeue','Inter',Arial,Helvetica,sans-serif;font-size:18px;font-weight:300;margin:0;letter-spacing:0.2px;text-decoration:none}
+.site-header .nav{display:flex;flex-wrap:nowrap;gap:28px;font-family:'LEMONMILK','Mont','BebasNeue','Inter',Arial,Helvetica,sans-serif;font-size:18px;font-weight:300;padding-top:6px;letter-spacing:0.2px}
+.site-header .nav a{white-space:nowrap;color:inherit;text-decoration:none;cursor:pointer;padding:2px 5px;margin:-2px -5px;transition:background-color 0.18s ease}
+.site-header .nav a:hover{background-color:rgba(255,255,255,0.06)}
+.site-header .nav-item{position:relative}
+.site-header .nav-item .nav-link{display:inline-block}
+.site-header .nav-item .dropdown{position:absolute;left:0;top:100%;background:#000;border:1px solid #222;display:none;min-width:180px;padding:6px 0;z-index:40}
+.site-header .nav-item .dropdown a{display:block;padding:8px 12px;color:inherit;text-decoration:none;white-space:nowrap}
+.site-header .nav-item:hover .dropdown,.site-header .nav-item:focus-within .dropdown{display:block}
+@media(max-width:760px){.top-area.site-header{flex-direction:column;gap:18px}.site-header .nav{flex-wrap:wrap;gap:18px}}

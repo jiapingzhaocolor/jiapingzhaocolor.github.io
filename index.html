@@ -20,12 +20,13 @@
      fullscreen arrows/Escape, and mobile layout. Do not invent project details.
   Shared project behavior lives in project.js; layout lives in project.css.
   The old viewer.html only redirects legacy album links to individual pages.
-  Home header/gallery width is controlled by the max-width CSS variable below.
+  Header positioning for every page lives in site-header.css; keep its 1320px
+  cap aligned with the home gallery max-width CSS variable below.
 -->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Work</title>
+  <title>Selected Work</title>
   <style>
 
     @font-face{font-family:'BebasNeue';src: url('fonts/BebasNeue-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
@@ -103,7 +104,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       column-gap: var(--picture-gap);
-      row-gap: var(--gap);
+      row-gap: var(--picture-gap);
     }
 
     .picture {
@@ -184,11 +185,13 @@
     }
 
   </style>
+  <!-- Shared header placement and typography: edit site-header.css. -->
+  <link rel="stylesheet" href="site-header.css">
 </head>
 <body>
 
-  <div class="top-area">
-    <a class="identity-link" href="index.html" aria-label="Go to Work">
+  <div class="top-area site-header">
+    <a class="identity-link" href="index.html" aria-label="Go to Selected Work">
       <div class="identity">
         <p class="name">Jiaping Zhao</p>
         <p class="title">Colorist</p>
@@ -197,8 +200,8 @@
 
     <nav class="nav" aria-label="Main navigation">
       <div class="nav-item">
-        <a class="nav-link" href="index.html">Work</a>
-        <div class="dropdown" aria-hidden="true">
+        <a class="nav-link" href="index.html">Selected Work</a>
+        <div class="dropdown">
           <a href="narrative.html">Narrative</a>
           <a href="commercial.html">Commercial</a>
         </div>
@@ -222,7 +225,7 @@
     </a>
 
     <a class="project" href="crazy.html">
-      <div class="picture"><img src="photos/Crazy%20Fucking%20Dance%20Lady/01_thumbnails/Still%202026-08-15%20194253_1.209.1image.webp" alt="Crazy">
+      <div class="picture"><img src="photos/Crazy%20Fucking%20Dance%20Lady/01_thumbnails/cfdl-bonfire-cover.png" alt="Crazy">
         <div class="project-overlay">
           <p class="picture-title">Crazy Fucking Dance Lady</p>
           <p class="project-type">sample</p>
@@ -248,8 +251,15 @@
       </div>
     </a>
 
+    <a class="project" href="the-box.html">
+      <div class="picture"><img src="photos/The%20Box/01_thumbnails/Still%202026-09-14%20003221_1.137.1image.webp" alt="The Box">
+        <div class="project-overlay">
+          <p class="picture-title">The Box</p>
+          <p class="project-type">sample</p>
+        </div>
+      </div>
+    </a>
     <!-- NEXT PROJECT: replace this first placeholder with a complete project card. -->
-    <div class="picture coming-soon">Coming soon</div>
     <div class="picture coming-soon">Coming soon</div>
     <div class="picture coming-soon">Coming soon</div>
     <div class="picture coming-soon">Coming soon</div>
