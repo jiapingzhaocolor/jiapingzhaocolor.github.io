@@ -26,3 +26,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #f2bf05;outline-offset:3p
 .counter{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:#0009;padding:6px 12px;font:14px Arial,sans-serif}
 @media(max-width:899px){.stills{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:540px){.stills{grid-template-columns:1fr}.still img{height:auto}.previous{left:8px}.next{right:8px}h1{font-size:18px}}
+
+/* Credits sit between each project's video and stills; use the light font face. */
+.project-credits{width:100%;padding:10px 0;font-family:'LEMONMILK','Mont',Arial,sans-serif;font-weight:300;font-size:14px;line-height:1.8;letter-spacing:0.2px}
+.project-credits p{margin:0}
