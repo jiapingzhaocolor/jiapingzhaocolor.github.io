@@ -1,0 +1,18 @@
+/* Shared fluid content sizing, loaded after the individual page styles. */
+*,*::before,*::after{box-sizing:border-box}
+body{min-width:0}
+.content-page{width:min(var(--max-width,1040px),calc(100% - 48px));min-width:0;overflow-wrap:anywhere}
+.reel-panel{width:min(920px,calc(100% - 48px))}
+.reel-window{min-height:0;aspect-ratio:16 / 9}
+.reel-text{padding:20px}
+.project-credits{overflow-wrap:anywhere}
+.lightbox{height:100dvh;max-height:100dvh}
+.lightbox button{touch-action:manipulation}
+@media(max-width:760px){
+  main.gallery,main.wrap,main.content-page,main.reel-panel{width:calc(100% - 32px);margin-top:24px}
+  .wrap{gap:14px}
+  .project-credits{font-size:12px}
+  .reel-panel{padding:10px}
+  .reel-text{font-size:clamp(14px,3.5vw,20px);letter-spacing:0.12em}
+  .site-footer{padding:32px 16px 24px;font-size:11px;overflow-wrap:anywhere}
+}
