@@ -87,47 +87,19 @@
 
     .reel-window {
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 540px;
-      border: 2px solid rgba(242,191,5,0.45);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)),
-        #000;
+      aspect-ratio: 16 / 9;
+      min-height: 0;
+      overflow: hidden;
+      background: #000;
     }
 
-    .reel-window::before,
-    .reel-window::after {
-      content: "";
+    .reel-window iframe {
       position: absolute;
-      width: 18px;
-      height: 18px;
-      border-color: var(--accent-color);
-      border-style: solid;
-    }
-
-    .reel-window::before {
-      top: 18px;
-      left: 18px;
-      border-width: 2px 0 0 2px;
-    }
-
-    .reel-window::after {
-      right: 18px;
-      bottom: 18px;
-      border-width: 0 2px 2px 0;
-    }
-
-    .reel-text {
-      color: var(--accent-color);
-      font-family: 'LEMONMILK','Mont','BebasNeue',Arial,Helvetica,sans-serif;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-size: clamp(18px, 2vw, 30px);
-      font-weight: 300;
-      text-align: center;
-      opacity: 0.92;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
     .site-footer{margin-top:auto;padding:60px 0 28px 0;text-align:center;font-size:14px;font-weight:300;font-family:'LEMONMILK','Mont','BebasNeue',Arial,Helvetica,sans-serif;letter-spacing:0.2px}
@@ -195,9 +167,14 @@
     </nav>
   </header>
 
-  <main class="reel-panel" aria-label="Reel placeholder">
+  <main class="reel-panel" aria-label="Colorist reel">
     <div class="reel-window">
-      <div class="reel-text">Reel coming soon</div>
+      <iframe
+        src="https://player.vimeo.com/video/1238204221?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1"
+        title="Jiaping Zhao — Colorist Reel"
+        allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+        allowfullscreen>
+      </iframe>
     </div>
   </main>
 
