@@ -93,14 +93,13 @@
       background: #000;
     }
 
-    .reel-window video {
+    .reel-window iframe {
       position: absolute;
       inset: 0;
       display: block;
       width: 100%;
       height: 100%;
       border: 0;
-      object-fit: contain;
     }
 
     .site-footer{margin-top:auto;padding:60px 0 28px 0;text-align:center;font-size:14px;font-weight:300;font-family:'LEMONMILK','Mont','BebasNeue',Arial,Helvetica,sans-serif;letter-spacing:0.2px}
@@ -170,10 +169,12 @@
 
   <main class="reel-panel" aria-label="Colorist reel">
     <div class="reel-window">
-      <video controls playsinline preload="metadata" aria-label="Jiaping Zhao — Colour Reel">
-        <source src="videos/JiapingZhao_ColourReel.mp4" type="video/mp4">
-        Your browser does not support embedded video. <a href="videos/JiapingZhao_ColourReel.mp4">Download the colour reel.</a>
-      </video>
+      <iframe
+        src="https://player.vimeo.com/video/1238204221?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1"
+        title="Jiaping Zhao — Colorist Reel"
+        allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+        allowfullscreen>
+      </iframe>
     </div>
   </main>
 
