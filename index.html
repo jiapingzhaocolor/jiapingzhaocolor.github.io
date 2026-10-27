@@ -3,20 +3,20 @@
 <!--
   HANDOFF GUIDE FOR FUTURE EDITORS / LLMs
   Static portfolio: keep three desktop columns, one mobile column, black/yellow
-  styling, hover title/type, and Coming soon placeholders for unused slots.
-  When the owner drops new project files into chat, add them to the next slot.
+  styling and hover title/type. Show completed projects only.
+  When the owner drops new project files into chat, append a project card.
   This is an editing workflow; the website itself has no file-upload handler.
   1. Save matching filenames under photos/PROJECT_FOLDER/01_thumbnails,
      02_large, and 03_fullscreen (highest-quality images go in 03_fullscreen).
   2. Copy an existing individual project HTML page, update its title, heading,
      image paths and alt text. Its still links point to 03_fullscreen; preview
      images use 02_large. Keep project.css and project.js linked.
-  3. Replace the first Coming soon box with a complete project anchor linking
-     to the new HTML page. Update cover thumbnail, alt, title and project type.
+  3. Append a complete project anchor linking to the new HTML page.
+     Update cover thumbnail, alt, title and project type.
      The current projects use narrative as their type; use the supplied type for new projects. Preserve existing project order.
   4. Each project has a blank Vimeo-ready iframe. When a Vimeo URL is supplied,
      replace srcdoc with the actual player embed src; keep its sizing/permissions.
-  5. After nine projects, append more cards. Verify all assets, project links,
+  5. Append completed project cards. Verify all assets, project links,
      fullscreen arrows/Escape, and mobile layout. Do not invent project details.
   Shared project behavior lives in project.js; layout lives in project.css.
   The old viewer.html only redirects legacy album links to individual pages.
@@ -138,7 +138,7 @@
       transition: opacity 0.25s ease;
       pointer-events: none;
     }
-    .picture-title, .project-type, .coming-soon {
+    .picture-title, .project-type {
       margin: 0;
       font-family: 'LEMONMILK','Mont','BebasNeue',Arial,Helvetica,sans-serif;
       font-weight: 300;
@@ -151,15 +151,6 @@
     .project:hover .project-overlay,
     .project:focus-visible .project-overlay { opacity: 1; }
     .project:focus-visible { outline: 2px solid var(--accent-color);outline-offset: 3px; }
-    .coming-soon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #101010;
-      border: 1px solid #252525;
-      color: var(--accent-color);
-      font-size: 13px;
-    }
     /* Phones and touch devices show titles immediately, without a hover step. */
     @media (max-width: 760px), (hover: none), (pointer: coarse) {
       .project .picture img { filter: brightness(0.6); transition: none; }
@@ -282,10 +273,6 @@
         </div>
       </div>
     </a>
-    <!-- NEXT PROJECT: replace this first placeholder with a complete project card. -->
-    <div class="picture coming-soon">Coming soon</div>
-    <div class="picture coming-soon">Coming soon</div>
-    <div class="picture coming-soon">Coming soon</div>
   </main>
 
 
